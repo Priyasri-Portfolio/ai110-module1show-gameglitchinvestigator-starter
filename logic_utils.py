@@ -13,12 +13,21 @@ def parse_guess(raw: str):
 
 
 def check_guess(guess, secret):
-    """
-    Compare guess to secret and return (outcome, message).
+    """Compare guess to secret and return an outcome string.
 
-    outcome examples: "Win", "Too High", "Too Low"
+    Outcome values:
+    - "Win" when guess equals secret
+    - "Too High" when guess is greater than secret
+    - "Too Low" when guess is less than secret
     """
-    raise NotImplementedError("Refactor this function from app.py into logic_utils.py")
+
+    if guess == secret:
+        return "Win"
+    # Fixcorrected reversed hint bug: if guess is greater than secret, it should return "Too High"
+    #verified with pytest that the hint is now correct and not reversed
+    if guess > secret:
+        return "Too High"
+    return "Too Low"
 
 
 def update_score(current_score: int, outcome: str, attempt_number: int):

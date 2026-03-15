@@ -1,4 +1,4 @@
-# 🎮 Game Glitch Investigator: The Impossible Guesser
+# 🎮 Game Glitch Investigator: The Impossible Guesser (Fixed File)
 
 ## 🚨 The Situation
 
@@ -25,14 +25,28 @@ It wrote the code, ran away, and now the game is unplayable.
 
 ## 📝 Document Your Experience
 
-- [ ] Describe the game's purpose.
-- [ ] Detail which bugs you found.
-- [ ] Explain what fixes you applied.
+-Game Purpose
+The game is a simple number-guessing challenge built with Steamlit. The player chooses a range, the app gerenates a secret number, and the player tries to guess it using "Higher/Lower" hints. The goal is to guess correctly in as few attempts as possible.
+-Bugs I Found
+   1) Reversed Hint Logic:
+      The game told me to "Go Higher" when my guess was already too high, and "Go Lower" when my guess was too low. this made the game impossible to win without looking at the debug info.
+   2) Secret Number Resetting Every Click
+      Steamlit reruns the script on every interaction, so the secret number was being regenerated each time 1 pressed "Submit". This made the game unwinnable because the target number kept changing.
+   3) Import Issues during testing
+      Pytest couldn't import logic_utils.py until I fixed the project structure nad added a conftest.py to ensure the project root was on the python path. 
+
+- Fixes I applied
+   -Corrected the hint logic: inside check_guess() and added a commnet documneting the fix.
+   -Stabilized the secret number using st.session_state so it persists scross reruns.
+   -separated game logic into logic_utils.py to make it testable.
+   -Added and ran pytest tests, confirming that the logic works correctly. All tests passed.
+   -Fixed import paths so pytest could properly load the logic module.
 
 ## 📸 Demo
 
-- [ ] [Insert a screenshot of your fixed, winning game here]
+![Winning game screenshot](GlitchyGuesserWon.png)
 
 ## 🚀 Stretch Features
 
-- [ ] [If you choose to complete Challenge 4, insert a screenshot of your Enhanced Game UI here]
+- ![Challenge 4- screenshot 1](challenge42.png)
+- ![Challenge 4- screenshot 2](challenge41.png)
