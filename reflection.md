@@ -52,7 +52,7 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 
 - What is one habit or strategy from this project that you want to reuse in future labs or projects?
   - This could be a testing habit, a prompting strategy, or a way you used Git.
-      -One habit I want to reuse from the project is writing down the bugs iwth clear understanding and steps.
+      -One habit I want to reuse from the project is writing down the bugs with clear understanding and steps.
        to reproduce it before trying to fix anything. This was helpful for me on debugging task nad break down to AI.
        Don't want to transfer the thinking process to leave it to AI.
 - What is one thing you would do differently next time you work with AI on a coding task?
